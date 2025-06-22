@@ -84,3 +84,7 @@ git clone https://github.com/Shanmukh1307/Crypto-Dashboard.git
 cd Crypto-Dashboard
 npm install
 npm run dev
+
+## 🌐 Live Demo
+[View Live Site](https://your-site-name.netlify.app)
+
