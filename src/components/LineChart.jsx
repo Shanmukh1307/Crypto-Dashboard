@@ -20,7 +20,6 @@ ChartJS.register(
   Legend,
 );
 
-
 const { Title } = Typography;
 
 const LineChart = ({ coinHistory, currentPrice, coinName }) => {
@@ -34,39 +33,90 @@ const LineChart = ({ coinHistory, currentPrice, coinName }) => {
   for (let i = 0; i < coinHistory?.data?.history?.length; i += 1) {
     coinTimestamp.push(new Date(coinHistory?.data?.history[i].timestamp).toLocaleDateString());
   }
+
   const data = {
     labels: coinTimestamp,
     datasets: [
       {
         label: 'Price In USD',
         data: coinPrice,
-        fill: false,
-        backgroundColor: '#0071bd',
-        borderColor: '#0071bd',
+        fill: true, // Subtle fill for professionalism
+        backgroundColor: 'rgba(30, 58, 138, 0.2)', // Darker blue gradient
+        borderColor: '#1E3A8A', // Professional dark blue
+        borderWidth: 2,
+        pointBackgroundColor: '#1E3A8A',
+        pointBorderColor: '#fff',
+        pointHoverBackgroundColor: '#1E90FF', // Lighter blue for hover
+        pointHoverBorderColor: '#1E3A8A',
+        tension: 0.4,
       },
     ],
   };
 
- const options = {
-  responsive: true,
-  scales: {
-    y: {   // ← not yAxes
-      beginAtZero: true,
+  const options = {
+    responsive: true,
+    maintainAspectRatio: false,
+    scales: {
+      y: {
+        beginAtZero: false,
+        grid: {
+          color: 'rgba(0, 0, 0, 0.05)', // Lighter grid for professionalism
+        },
+        ticks: {
+          color: 'var(--text-secondary, #666)',
+        },
+        backgroundColor: 'transparent',
+      },
+      x: {
+        grid: {
+          display: false,
+        },
+        ticks: {
+          color: 'var(--text-secondary, #666)',
+        },
+        backgroundColor: 'transparent',
+      },
     },
-  },
-};
-
+    plugins: {
+      legend: {
+        labels: {
+          color: 'var(--text-primary, #000)',
+        },
+      },
+      tooltip: {
+        backgroundColor: 'rgba(0, 0, 0, 0.9)', // Darker tooltip
+        titleColor: '#fff',
+        bodyColor: '#fff',
+        borderColor: '#1E3A8A',
+        borderWidth: 1,
+      },
+    },
+  };
 
   return (
     <>
-      <Row className="chart-header">
-        <Title level={2} className="chart-title">{coinName} Price Chart </Title>
-        <Col className="price-container">
-          <Title level={5} className="price-change">Change: {coinHistory?.data?.change}%</Title>
-          <Title level={5} className="current-price">Current {coinName} Price: $ {currentPrice}</Title>
+      <Row className="chart-header" style={{ justifyContent: 'space-between', alignItems: 'center' }}>
+        <Col>
+          <Title level={2} className="chart-title" style={{ margin: 0, fontWeight: 700, color: 'var(--text-primary, #000)' }}>
+            {coinName} Price Chart
+          </Title>
+        </Col>
+        <Col className="price-container" style={{ backgroundColor: 'rgba(245, 246, 245, 0.5)', padding: 'var(--space-sm)', borderRadius: 'var(--radius-md)', boxShadow: 'var(--shadow-light)' }}>
+          <Title
+            level={5}
+            className={`price-change ${coinHistory?.data?.change > 0 ? 'positive' : 'negative'}`}
+            style={{ margin: 0, fontWeight: 700, color: coinHistory?.data?.change > 0 ? 'var(--positive, #16c784)' : 'var(--negative, #f44336)', fontStyle: 'italic' }}
+          >
+            Change: {coinHistory?.data?.change}%
+          </Title>
+          <Title level={5} className="current-price" style={{ margin: 0, fontWeight: 700, color: 'var(--text-primary, #000)' }}>
+            Current {coinName} Price: <span style={{ color: '#1E3A8A' }}>$ {currentPrice}</span>
+          </Title>
         </Col>
       </Row>
-      <Line data={data} options={options} />
+      <div style={{ height: '400px' }}>
+        <Line data={data} options={options} />
+      </div>
     </>
   );
 };

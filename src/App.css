@@ -1,3 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 /* Reset and Base Styles */
 * {
   margin: 0;
@@ -8,21 +12,20 @@
 body {
   font-family: 'Inter', 'SF Pro', system-ui, sans-serif;
   color: var(--text-primary, #000);
-  background-color: var(--bg-main, #fff);
+  background-color: #F5F6F5; /* Grey background */
   line-height: 1.6;
 }
 
 /* Variables for Color Scheme */
-/* Variables for Color Scheme */
 :root {
-  --bg-main: #fff;
-  --bg-secondary: #fff; /* ✅ Updated: Removed pale grey (#F9F9F9) */
+  --bg-main: #F5F6F5; /* Grey */
+  --bg-secondary: #F5F6F5; /* Grey */
   --text-primary: #000;
   --text-secondary: #666;
-  --primary: #0071bd;
+  --primary: #0071bd; /* Blue for boxes */
   --positive: #16c784;
   --negative: #f44336;
-  --border: #d9d9d9;
+  --border: #4B5563; /* Lighter dark grey for consistent borders */
   --shadow-light: 0 4px 6px rgba(0, 0, 0, 0.1);
   --shadow-hover: 0 6px 12px rgba(0, 0, 0, 0.2);
 
@@ -52,12 +55,12 @@ body {
   --radius-full: 50%;
 }
 
-
 /* Layout and Structure */
 .app {
   display: flex;
   min-height: 100vh;
   overflow: hidden;
+  background-color: #F5F6F5; /* Grey */
 }
 
 .nav-container {
@@ -81,8 +84,14 @@ body {
   margin-left: 220px;
   width: calc(100% - 220px);
   padding: var(--space-xl);
-  background: var(--bg-main);
+  background: var(--bg-main); /* Grey */
   transition: margin-left 0.3s ease;
+}
+
+/* Override Ant Design Default Backgrounds to match grey */
+.ant-layout,
+.ant-layout-content {
+  background-color: #F5F6F5 !important; /* Match grey background */
 }
 
 .logo-container {
@@ -130,19 +139,19 @@ body {
 
 /* Cards and Data Display */
 .crypto-card, .news-card {
-  background: var(--bg-secondary);
+  background: var(--bg-secondary); /* Grey */
   border-radius: var(--radius-md);
   padding: var(--space-xl);
   margin: var(--space-sm) 0;
   box-shadow: var(--shadow-light);
   transition: all 0.3s ease;
-  border: 1px solid var(--border);
+  border: 1px solid var(--border); /* Lighter border */
 }
 
 .crypto-card:hover, .news-card:hover {
   transform: translateY(-5px);
   box-shadow: var(--shadow-hover);
-  background: #ffffff;
+  background: #F5F6F5; /* Match grey on hover */
 }
 
 .crypto-card .crypto-image {
@@ -175,7 +184,7 @@ body {
 /* Coin Details and Stats */
 .coin-detail-container {
   margin: var(--space-3xl);
-  background: var(--bg-secondary);
+  background: var(--bg-secondary); /* Grey */
   border-radius: var(--radius-md);
   padding: var(--space-xl);
   box-shadow: var(--shadow-light);
@@ -220,6 +229,23 @@ body {
   text-transform: uppercase;
 }
 
+/* New Blue Boxes for Global Stats */
+.stats-container .coin-stats {
+  background-color: var(--primary); /* Blue background */
+  color: #fff; /* White text for contrast */
+  padding: var(--space-lg);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-light);
+  width: 100%; /* Full width within flex item */
+  text-align: center; /* Center text for balance */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.stats-container .coin-stats:hover {
+  transform: translateY(-3px); /* Subtle lift on hover */
+  box-shadow: var(--shadow-hover);
+}
+
 .coin-stats {
   display: flex;
   justify-content: space-between;
@@ -231,7 +257,7 @@ body {
 }
 
 .coin-stats:hover {
-  background: #ffffff;
+  background: #F5F6F5; /* Match grey on hover for non-boxed stats */
 }
 
 .coin-link {
@@ -245,7 +271,7 @@ body {
 }
 
 .coin-link:hover {
-  background: #ffffff;
+  background: #F5F6F5; /* Match grey on hover */
 }
 
 .coin-link a {
@@ -302,6 +328,15 @@ body {
   .crypto-card, .news-card {
     padding: var(--space-lg);
   }
+
+  .stats-container {
+    flex-direction: column;
+    gap: var(--space-xl);
+  }
+
+  .stats-container .coin-stats {
+    width: 100%; /* Full width on mobile */
+  }
 }
 
 @media screen and (max-width: 576px) {
@@ -343,7 +378,7 @@ body {
 /* Additional Styles */
 .select-news, .select-timeperiod {
   width: 180px;
-  background: var(--bg-secondary);
+  background: var(--bg-secondary); /* Grey */
   border: 1px solid var(--border);
   color: var(--text-primary);
   border-radius: var(--radius-md);
@@ -428,7 +463,7 @@ body {
 .search-crypto {
   margin: var(--space-lg) auto var(--space-3xl) auto;
   width: 250px;
-  background: var(--bg-secondary);
+  background: var(--bg-secondary); /* Grey */
   border: 1px solid var(--border);
   color: var(--text-primary);
   border-radius: var(--radius-md);
@@ -454,7 +489,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  background: var(--bg-main);
+  background: var(--bg-main); /* Grey */
   color: var(--text-primary);
 }
 
@@ -485,10 +520,91 @@ a:focus, button:focus {
 .crypto-card,
 .news-card,
 .coin-detail-container {
-  background: #fff !important;
+  background: #F5F6F5 !important; /* Grey */
 }
 
 /* ✅ Preserve dark nav styling */
 .nav-container {
   background: #001529 !important;
+}
+
+/* Apply a light border to all Ant Design Cards */
+.ant-card {
+  border: 1px solid var(--border) !important; /* Match lighter border */
+  border-radius: 8px;
+  box-shadow: none !important;
+}
+
+.ant-card-head {
+  border-bottom: 1px solid var(--border) !important; /* Match lighter border */
+}
+
+/* Homepage Styles */
+.homepage-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: var(--space-3xl) var(--space-lg);
+  background: var(--bg-main);
+}
+
+.homepage-title {
+  font-size: var(--fs-h1);
+  font-weight: 700;
+  color: var(--text-primary);
+  text-align: center;
+  margin-bottom: var(--space-2xl);
+  text-transform: uppercase;
+}
+
+.stats-row {
+  margin-bottom: var(--space-4xl);
+}
+
+.stat-card {
+  background: #ffffff; /* White for contrast */
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: var(--space-lg);
+  box-shadow: var(--shadow-light);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.stat-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-hover);
+}
+
+.home-title {
+  font-size: var(--fs-h2);
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.show-more a {
+  font-size: var(--fs-h3);
+  color: var(--primary);
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.show-more a:hover {
+  color: #00b7eb;
+}
+
+@media screen and (max-width: 800px) {
+  .homepage-container {
+    padding: var(--space-lg);
+  }
+
+  .homepage-title {
+    font-size: var(--fs-h2);
+  }
+
+  .home-title {
+    font-size: var(--fs-h3);
+  }
+
+  .show-more a {
+    font-size: var(--fs-body);
+  }
 }
