@@ -2,39 +2,46 @@
 
 This project is a **real-time cryptocurrency analytics dashboard** that provides users with up-to-date data about various cryptocurrencies, including:
 
-- ✅ Current market prices
-- ✅ Trading volume and market cap
-- ✅ Historical price charts
-- ✅ Latest crypto-related news
-- ✅ Detailed coin-specific data
-- ✅ External resource links (whitepapers, websites, social)
+- ✅ Current market prices  
+- ✅ Trading volume and market cap  
+- ✅ Historical price charts  
+- ✅ Latest crypto-related news  
+- ✅ Detailed coin-specific data  
+- ✅ External resource links (whitepapers, websites, social)  
 
 The application is fully responsive, uses real APIs, and dynamically updates based on user interaction, providing a seamless user experience.
 
 ---
 
+## 🌐 Live Demo
+
+👉 [Visit the Live App](https://cryptscope.netlify.app)
+
+---
+
 ## 🛠️ Tech Stack & Tools Used
 
-- ⚛️ **React.js** — core framework
-- ⚡ **Vite** — fast development server
-- 🎨 **Ant Design** — UI components & layout
-- 📦 **Redux Toolkit & RTK Query** — API handling and state management
-- 📰 **RapidAPI** — for Crypto News and Market Data (CoinRanking, Bing News APIs)
-- 📈 **Recharts** — line chart visualization
-- 🧠 **html-react-parser** — for parsing rich HTML content
-- 💻 **VS Code** — code editor
+- ⚛️ **React.js** — core framework  
+- ⚡ **Vite** — fast development server  
+- 🎨 **Ant Design** — UI components & layout  
+- 🎯 **Tailwind CSS** — for utility-first custom styling  
+- 📦 **Redux Toolkit & RTK Query** — API handling and state management  
+- 📰 **RapidAPI** — for Crypto News and Market Data (CoinRanking, Bing News APIs)  
+- 📈 **Recharts** — line chart visualization  
+- 🧠 **html-react-parser** — for parsing rich HTML content  
+- 💻 **VS Code** — code editor  
 
 ---
 
 ## 🔑 Key Features Implemented
 
-- 🔍 Search & select dropdown for filtering coins and news
-- 📈 Interactive price history line charts
-- 📰 Crypto news feed with image cards and external links
-- 📊 Detailed coin view (price, volume, market rank, supply info)
-- 🌐 External resource section (whitepapers, websites, forums)
-- 🧩 Modular structure using reusable components
-- ⛔ Graceful fallback when API limits are reached
+- 🔍 Search & select dropdown for filtering coins and news  
+- 📈 Interactive price history line charts  
+- 📰 Crypto news feed with image cards and external links  
+- 📊 Detailed coin view (price, volume, market rank, supply info)  
+- 🌐 External resource section (whitepapers, websites, forums)  
+- 🧩 Modular structure using reusable components  
+- ⛔ Graceful fallback when API limits are reached  
 
 ---
 
@@ -54,8 +61,9 @@ As this was my **first full React project**, I gained hands-on experience with m
 
 ### 🎨 UI Development:
 - Used Ant Design grid system and typography.
+- Applied custom styling using **Tailwind CSS** for layout, responsiveness, and utility classes.
 - Handled layout issues and responsiveness manually & through AntD.
-- Tweaked style using custom CSS + inline styles.
+- Tweaked style using custom CSS + Tailwind + inline styles.
 
 ### 📊 Data Visualization:
 - Plotted real-time coin history using line charts.
@@ -69,11 +77,11 @@ As this was my **first full React project**, I gained hands-on experience with m
 
 ## 📈 What I Plan to Improve Next
 
-- 🔧 Move to **Tailwind CSS** or **Styled Components** for better styling
-- ⚙️ Learn **React Context API** and **custom hooks**
-- 🔐 Explore authentication (Firebase/Auth0) and protected routing
-- ✅ Write unit/component tests (Jest + React Testing Library)
-- 🗄️ Build a custom backend using **Express.js** to go beyond public APIs
+- 🔧 Move fully to **Tailwind CSS** or **Styled Components** for unified styling  
+- ⚙️ Learn **React Context API** and **custom hooks**  
+- 🔐 Explore authentication (Firebase/Auth0) and protected routing  
+- ✅ Write unit/component tests (Jest + React Testing Library)  
+- 🗄️ Build a custom backend using **Express.js** to go beyond public APIs  
 
 ---
 
@@ -84,7 +92,3 @@ git clone https://github.com/Shanmukh1307/Crypto-Dashboard.git
 cd Crypto-Dashboard
 npm install
 npm run dev
-
-## 🌐 Live Demo
-[View Live Site](https://your-site-name.netlify.app)
-
